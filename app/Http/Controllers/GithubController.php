@@ -17,7 +17,8 @@ class GithubController extends Controller
 
     public function callback()
     {
-        $user = Socialite::driver('github')->stateless()->user();
+        $user = Socialite::driver('github')->user();
+
         $user = User::firstOrCreate([
             'github_id' => $user->id,
         ], [
@@ -26,6 +27,8 @@ class GithubController extends Controller
             'avatar' => $user->getAvatar(),
             'password' => bcrypt('salt' . $user->id),
         ]);
+
+
 
         Auth::login($user, true);
         \Log::info('Logged in user: ' . $user->id);
