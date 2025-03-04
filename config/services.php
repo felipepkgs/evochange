@@ -34,11 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'client_secret' => env('GITHUB_SECRET'),
         'redirect' => env('GITHUB_REDIRECT_URI'),
     ],
-
 ];
